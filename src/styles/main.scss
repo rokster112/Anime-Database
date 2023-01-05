@@ -1,0 +1,103 @@
+
+.anime-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.anime-div {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.individual-anime {
+  margin-inline: 20px;
+}
+
+
+.side-information {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding: 10px;
+  
+  .individual-details {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .span{
+    font-weight: bold;
+  }
+}
+
+.page-nav-container {
+  display: flex;
+  margin-block: 30px;
+  .page-number {
+    padding-inline: 20px;
+  }
+}
+
+.anime-card-text-container {
+  background-color: #f8f8f8;
+  
+}
+
+.statistics-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; 
+  align-items: center;   
+  margin-block: 20px 40px; 
+  border: 1px solid #e5e5e5;
+  background-color: #f8f8f8;
+}
+
+.individual-statistics {
+  margin-inline: 15px;
+}
+
+.statistics-top-bottom {
+  padding: 20px 50px;
+}
+
+.character-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 400px;
+}
+
+.user-stats {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.episode-button {
+  color: black;
+  font-weight: bold;
+  &:hover {
+    color: blue;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
