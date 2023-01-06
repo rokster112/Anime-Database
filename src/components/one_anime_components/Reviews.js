@@ -9,7 +9,6 @@ export default function Reviews(props) {
   const [reviews, setReviews] = useState()
   const [currentPage, setCurrentPage] = useState(1)
   const [pageData, setPageData] = useState()
-  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -19,7 +18,9 @@ export default function Reviews(props) {
             page: currentPage
           }
         })
-        setReviews(data.data)
+        setReviews(data.data.map(item => {
+          return {...item, toggle: false}
+        }))
         setPageData(data.pagination)
       } catch (error) {
         console.log('ERROR ON REVIEWS PAGE', error)
@@ -28,15 +29,18 @@ export default function Reviews(props) {
     getData()
   }, [])
 
+
   function changePage(page) {
     setCurrentPage(page)
   }
 
-  function toggler(event, id) {
-    // eslint-disable-next-line no-restricted-globals
-    if (event.target.id === event.target.name) {
-      setToggle(!toggle)
-    }
+  function toggler(id) {
+    setReviews(reviews.map(review => {
+      if (review.mal_id === id) {
+        return {...review, toggle: !review.toggle}
+      }
+      return review
+    }))
   }
 
   const mappedReviews = reviews !== undefined ? reviews.map(item => {
@@ -52,7 +56,7 @@ export default function Reviews(props) {
       }
     })
     return <>
-    <div key={item.mal_id}  style={{display: 'flex', justifyContent: 'space-between', margin: '20px 10px 0px 0px', overflow: 'hidden', height: '300px'}}>
+    <div key={item.mal_id}  style={{display: 'flex', justifyContent: 'space-between', margin: '20px 10px 0px 0px', overflow: item.toggle ? 'visible' : 'hidden', height: item.toggle ? '' : '300px'}}>
     <div style={{display: 'flex', flexDirection: 'row'}}>
         <div style={{display: 'flex', justifyContent: 'centre', flexDirection: 'row'}}> 
         <div>
@@ -69,7 +73,9 @@ export default function Reviews(props) {
       </div>
     </div>
     </div>
-    <button name={item.mal_id} value={item.mal_id} id={item.mal_id} onClick={(event) => toggler(event, item.mal_id)}>{toggle ? 'Hide' : 'Show'}</button>
+    <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+    <button className='reviews-button' id={item.mal_id} name={item.mal_id} onClick={() => toggler(item.mal_id)}>{item.toggle ? 'Hide ∧' : 'Show ∨'}</button>
+    </div>
     </>
   })
   : ''

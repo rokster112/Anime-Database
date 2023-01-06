@@ -93,4 +93,15 @@
   font-size: 13px;
   padding: 10px;
   background-color: #f0f0f0;
+}
+
+.reviews-button {
+  background-color: white;
+  border: none;
+  color: #1c439b;
+}
+.reviews-button:hover {
+  background-color: #1c439b;
+  color: white;
+  transition: 0.5s;
 }/*# sourceMappingURL=main.css.map */

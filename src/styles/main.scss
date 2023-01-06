@@ -101,6 +101,17 @@
   background-color: #f0f0f0;
 }
 
+.reviews-button {
+  background-color: white;
+  border: none;
+  color: #1c439b;
+  &:hover {
+    background-color: #1c439b;
+    color: white;
+    transition: 0.5s;
+  }
+}
+
 
 
 
