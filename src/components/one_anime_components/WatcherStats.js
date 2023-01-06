@@ -11,7 +11,6 @@ export default function WatcherStats(props) {
     const getStats = async () => {
       try {
         const {data} = await axios.get(`https://api.jikan.moe/v4/anime/${props.id}/statistics`)
-        console.log('This is the data', data)
         setStats(data.data)
       } catch (error) {
         console.log(error)

@@ -3,10 +3,10 @@ import axios from 'axios'
 import PagesBar from "../PagesBar"
 import { Link, useParams } from "react-router-dom"
 import SideInfo from "./SideInfo"
+import MiniNavbar from "../helpers/MiniNavbar"
 
 export default function News(props) {
   const {id} = useParams()
-  console.log('asjdhajsdkajsdka', props.oneAnime)
 
   const [data, setData] = useState([])
   const [pageData, setPageData] = useState([])
@@ -24,9 +24,6 @@ export default function News(props) {
     }
     getData()
   }, [])
-
-  console.log('data ------->',data)
-  console.log('pages ------->',pageData)
 
   function changePage(page) {
     setCurrentPage(page)
@@ -53,6 +50,10 @@ export default function News(props) {
 
   return (
     <div>
+      <MiniNavbar 
+        id={id}
+        title={props.oneAnime.title_english}
+      />
       <div className='individual-anime'>
       <div className='side-info-statistics-part' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
       <SideInfo 
@@ -61,11 +62,11 @@ export default function News(props) {
       />
       <div style={{display: 'flex', flexDirection: 'column', paddingTop: '20px'}}>
       {news}
-      <PagesBar 
+      {pageData.has_next_page ? <PagesBar 
         currentPage={currentPage}
         changePage={changePage}
         lastPage={pageData.last_visible_page}
-      />
+      /> : ''}
       </div>
       </div>
       </div>

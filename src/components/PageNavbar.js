@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom'
 export default function PageNavbar({ onSearch, search, allAnime, onFilteredResults, onAllAnime }) {
 
   const navigate = useNavigate()
-  
 
   function handleChange(e) {
     onSearch(e.target.value)

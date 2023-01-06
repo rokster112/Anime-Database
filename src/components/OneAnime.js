@@ -12,6 +12,7 @@ import Recommendations from './one_anime_components/Recommendations'
 import News from './one_anime_components/News'
 import Reviews from './one_anime_components/Reviews'
 import WatcherStats from './one_anime_components/WatcherStats'
+import MiniNavbar from './helpers/MiniNavbar'
 
 export default function OneAnime(props) {
   
@@ -68,15 +69,15 @@ export default function OneAnime(props) {
   return (
     <div key={id}>
       {oneAnime === 0 ? 
-      <p style={{textAlign: 'center', fontSize: '26px'}}>{error}</p>
+      <p style={{textAlign: 'center', fontSize: '26px'}}>Loading</p>
       :
       <>
-      <div style={{backgroundColor: 'rgba(0, 0, 255, 0.5)', paddingBlock: '5px'}}>
-      <h2 style={{textAlign: 'center', paddingBlock: '10px', margin: '0', color: 'white'}}>{oneAnime.title}</h2>
+      <div style={{backgroundColor: '#b6caf9'}}>
+      <h2 style={{textAlign: 'center', paddingTop: '10px', margin: '0', color: 'white',}}>{oneAnime.title}</h2>
       </div>
-      <Link to={`/anime/${id}/full/news`}>
-      <button>Whatevs</button>
-      </Link>
+      <MiniNavbar 
+        id={id}
+      />
       <div className='individual-anime'>
       <div className='side-info-statistics-part' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
       <SideInfo 
@@ -98,23 +99,7 @@ export default function OneAnime(props) {
       <div className='character-div' style={{borderTop: '1px solid black', overflow: toggle ? 'hidden' : 'scroll'}}>
         {animeCharacters}
       </div>                  
-      <div className='episode-div' style={{marginTop: '20px'}}>
-      <Episodes 
-        id={id}
-        />
-      </div>
-      <p style={{fontWeight: 'bold', marginBlock: '15px 15px'}} className='description'>Recommendations</p>             
-      <div className='recommendations-div' style={{paddingBottom: '30px', borderTop: '1px solid black'}}>
-        <Recommendations 
-          id={id}
-        />
-      </div>
       <div >
-        <div>
-          <Reviews 
-            id={id}
-          />
-        </div>
       </div>
       </div>
       </div>

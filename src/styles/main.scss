@@ -20,6 +20,8 @@
 
 .individual-anime {
   margin-inline: 20px;
+  display: flex; 
+  justify-content: space-between;
 }
 
 
@@ -88,6 +90,15 @@
     color: blue;
     cursor: pointer;
   }
+}
+
+.reviews-p {
+  margin-right: 5px; 
+  height: 40px;
+  width: 175px;
+  font-size: 13px;
+  padding: 10px;
+  background-color: #f0f0f0;
 }
 
 
