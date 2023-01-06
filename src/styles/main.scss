@@ -112,6 +112,20 @@
   }
 }
 
+.pages-bar-buttons {
+  background-color: white;
+  border: none;
+  color: #1c439b;
+  width: 60px;
+  height: 30px;
+  &:hover {
+    background-color: #1c439b;
+    color: white;
+    transition: 0.5s;
+  }
+}
+
+
 
 
 

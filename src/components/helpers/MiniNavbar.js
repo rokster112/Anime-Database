@@ -36,7 +36,7 @@ export default function MiniNavbar(props) {
 
   return (
     <div className='mini-navbar-container'>
-      <div style={{backgroundColor: '#b6caf9', paddingBlock: '5px'}}>
+      <div style={{backgroundColor: 'rgb(100 146 255)', paddingBlock: '5px', borderBlock: '1px solid black'}}>
         <h2 style={{textAlign: 'center', paddingBlock: '10px', margin: '0', color: 'white'}}>{props.title}</h2>
       </div>
     <div style={{display: 'flex', justifyContent: 'flex-end', marginBlock: '20px'}}>

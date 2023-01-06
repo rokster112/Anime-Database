@@ -70,8 +70,6 @@ export default function Episodes(props) {
     const eps = episodes.map(item => {
       return item.map(some => some.title)
     })
-
-    console.log('asdnasjdasd', eps)
     
   return (
     <>
@@ -94,16 +92,13 @@ export default function Episodes(props) {
           <p className='episode-button' style={{display: eps[0] == false || eps[0].length < 10 ? 'none' : 'flex'}} onClick={handleClick}>{toggle ? 'Show all episodes' : 'Minimize all episodes '}</p>
         </div>
         <div style={styles} id='scrollable-div'>
-            {mappedEpisodes}
+            {episodes[0].length > 0 ? mappedEpisodes : 'Currently no episodes available for this anime'}
           </div>
           
-          {eps[0].length > 38 ? <PagesBar
+            <PagesBar
             lastPage={lastPage}
             currentPage={currentPage}
             changePage={changePage} />
-            :
-            ''
-            }
                 </div>
                 </div>
                 </div>

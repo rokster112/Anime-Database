@@ -7,9 +7,9 @@ export default function PagesBar(props) {
 
   return (
     <div className='page-nav-container'>
-      <button onClick={() => props.changePage(props.currentPage - 1)} disabled={props.currentPage === 1}>Back</button>
+      <button className='pages-bar-buttons' onClick={() => props.changePage(props.currentPage - 1)} disabled={props.currentPage === 1}>Back</button>
       <div className='page-number'>{props.currentPage}</div>
-      <button onClick={() => props.changePage(props.currentPage + 1)} disabled={props.currentPage === totalPages || props.currentPage == props.lastPage}>Next</button>
+      <button className='pages-bar-buttons' onClick={() => props.changePage(props.currentPage + 1)} disabled={props.currentPage === totalPages || props.currentPage == props.lastPage}>Next</button>
     </div>
   )
 }

@@ -29,6 +29,8 @@ export default function News(props) {
     setCurrentPage(page)
   }
 
+  console.log('News data', data)
+
   const news = data.map(item => {
     return <div key={item.mal_id} style={{height: '170px', display: 'flex',flexDirection: 'row'}}>
       <a href={item.url} target='_blank' rel='noreferrer'>
@@ -61,7 +63,7 @@ export default function News(props) {
       {...props.oneAnime}
       />
       <div style={{display: 'flex', flexDirection: 'column', paddingTop: '20px'}}>
-      {news}
+      { data.length > 0 ? news : 'Currently no news available for this anime'}
       {pageData.has_next_page ? <PagesBar 
         currentPage={currentPage}
         changePage={changePage}

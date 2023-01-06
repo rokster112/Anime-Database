@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom'
+import MiniNavbar from '../helpers/MiniNavbar'
+import SideInfo from './SideInfo'
+import PagesBar from '../PagesBar'
 
 export default function Reviews(props) {
 
@@ -29,7 +32,6 @@ export default function Reviews(props) {
     getData()
   }, [])
 
-
   function changePage(page) {
     setCurrentPage(page)
   }
@@ -56,14 +58,17 @@ export default function Reviews(props) {
       }
     })
     return <>
-    <div key={item.mal_id}  style={{display: 'flex', justifyContent: 'space-between', margin: '20px 10px 0px 0px', overflow: item.toggle ? 'visible' : 'hidden', height: item.toggle ? '' : '300px'}}>
+    <div key={item.mal_id}  style={{display: 'flex', justifyContent: 'space-between', margin: '15px 10px 0px 0px', overflow: item.toggle ? 'visible' : 'hidden', height: item.toggle ? '' : '300px'}}>
     <div style={{display: 'flex', flexDirection: 'row'}}>
         <div style={{display: 'flex', justifyContent: 'centre', flexDirection: 'row'}}> 
         <div>
         <img style={{width: '120px', marginInline: '10px'}} src={item.user.images.jpg.image_url}/>
         </div>
       <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <p style={{fontWeight: 'bold', color: '#1c439b'}}>{item.user.username}</p>
+        <p style={{marginRight: '10px'}}>{item.date.split('T')[0]}</p>
+        </div>
       <p style={{fontWeight: 'bold'}}>Rating: {item.score}/10</p>
         <div style={{display: 'flex', flexDirection: 'row'}}>
         {rating}
@@ -80,6 +85,7 @@ export default function Reviews(props) {
   })
   : ''
 
+  // const lastPage = pageData.map(item => item.last_visible_page)
 
   console.log('REVIEW DATA', reviews)
   console.log('REVIEW DATA', pageData)
@@ -88,9 +94,32 @@ export default function Reviews(props) {
   return (
     <div>
       {reviews !== undefined ? 
-      <div>
+      <>
+      <MiniNavbar 
+      id={id}
+      title={props.oneAnime.title_english}
+      />
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <SideInfo 
+          id={id}
+          {...props.oneAnime}
+        />
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <div style={{borderBottom: '1px solid', paddingBottom: '15px'}}>
+          <p style={{margin: '0', fontWeight: 'bold'}}>Reviews</p>
+          </div>
       {mappedReviews}
+      <div style={{display: 'flex', alignItem: 'center', justifyContent: 'center'}}>
+        <PagesBar 
+        changePage={changePage}
+        currentPage={currentPage}
+        lastPage={pageData.last_visible_page}
+        />
+        </div>
+          </div>  
       </div>
+
+      </>
     
       : 'Reviews unavailable'}
     </div>

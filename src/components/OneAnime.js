@@ -72,11 +72,9 @@ export default function OneAnime(props) {
       <p style={{textAlign: 'center', fontSize: '26px'}}>Loading</p>
       :
       <>
-      <div style={{backgroundColor: '#b6caf9'}}>
-      <h2 style={{textAlign: 'center', paddingTop: '10px', margin: '0', color: 'white',}}>{oneAnime.title}</h2>
-      </div>
       <MiniNavbar 
         id={id}
+        title={oneAnime.title_english}
       />
       <div className='individual-anime'>
       <div className='side-info-statistics-part' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>

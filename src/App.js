@@ -3,12 +3,12 @@ import AllAnime from './components/AllAnime'
 import OneAnime from './components/OneAnime'
 import Home from './components/Home'
 import PageNavbar from './components/PageNavbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import News from './components/one_anime_components/News'
 import Episodes from './components/one_anime_components/Episodes'
 import Recommendations from './components/one_anime_components/Recommendations'
-import MiniNavbar from './components/helpers/MiniNavbar'
 import Reviews from './components/one_anime_components/Reviews'
+
 
 export default function App() {
 
@@ -17,7 +17,7 @@ export default function App() {
   const [oneAnime, setOneAnime] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
 
-  console.log('Filtered array', filteredResults)
+
   return (
     <div className='site-wrapper'>
       <BrowserRouter>

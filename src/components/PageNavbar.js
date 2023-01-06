@@ -52,9 +52,6 @@ export default function PageNavbar({ onSearch, search, allAnime, onFilteredResul
               placement="end"
               >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
-                </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -64,9 +61,9 @@ export default function PageNavbar({ onSearch, search, allAnime, onFilteredResul
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      Another action
+                      Register
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">

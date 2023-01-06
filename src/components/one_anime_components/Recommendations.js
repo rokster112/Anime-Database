@@ -20,7 +20,7 @@ export default function Recommendations(props) {
     getRecommendations()
   }, [])
   
-  console.log('One anime data', props.oneAnime)
+  console.log('One anime data', rec)
 
   return (
     <div>
@@ -41,7 +41,7 @@ export default function Recommendations(props) {
     
 
       {(typeof rec !== 'undefined' || rec.length === 0) && rec.length > 0 ? rec.map(item => {
-        if (item.votes > 5) {
+        if (item.votes > 1) {
           return <div key={item.entry.mal_id} style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', marginInline: '5px', marginBlock: '25px', height: '220px', width: '160px'}}>
           <a href={`/anime/${item.entry.mal_id}`}>
           <div style={{height: '200px', width: '160px'}}>
