@@ -34,7 +34,6 @@ export default function AllAnime(props) {
   function changePage(page) {
     setCurrentPage(page)
   }
-  
 
   const animeComp = props.filteredResults.length > 0 ? props.filteredResults.map(oneAnime => {
     return <AnimeCard 
@@ -43,7 +42,8 @@ export default function AllAnime(props) {
     english_title={oneAnime.title_english}
     japanese_title={oneAnime.title_japanese}
     alternative_title={oneAnime.title}  
-    image={oneAnime.images.jpg.image_url}  
+    image={oneAnime.images.jpg.image_url}
+    score={oneAnime.score}  
     />
   }) : anime.map(oneAnime => {
     return <AnimeCard 
@@ -52,10 +52,10 @@ export default function AllAnime(props) {
     english_title={oneAnime.title_english}
     japanese_title={oneAnime.title_japanese}
     alternative_title={oneAnime.title}  
-    image={oneAnime.images.jpg.image_url}  
+    image={oneAnime.images.jpg.image_url} 
+    score={oneAnime.score}   
     />
   })
-
   
   const pages = pageData.map((item, index) => {
     return <PagesBar 

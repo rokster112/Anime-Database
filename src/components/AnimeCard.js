@@ -13,8 +13,13 @@ export default function AnimeCard(props) {
       <Col key={props.id} className='g-col-4 mb-2 mt-2'>
       <Card style={{ width: '16rem', height: '28rem', marginInline: '10px', border: '1px solid #e5e5e5'}}>
       <Link to={`/anime/${props.id}`} style={{textDecoration: 'none'}}>
-        <Card.Img variant='top' src={props.image} style={{height: '51vh'}}></Card.Img>
-        <Card.Body className='anime-card-text-container' style={{height: '10vh', overflow: 'hidden', borderBottom: '1px solid #e5e5e5', borderRadius: '9px'}}>
+      <div style={{ backgroundImage: `url(${props.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '51vh' }}>
+        <div style={{ width: '50px',backgroundColor: 'black'}}>
+      <p style={{ color: 'white', fontSize: '14px' }}>★ {props.score}</p>
+        </div>
+    </div>        
+    
+    <Card.Body className='anime-card-text-container' style={{height: '10vh', overflow: 'hidden', borderBottom: '1px solid #e5e5e5', borderRadius: '9px'}}>
           <Card.Title className='text-center mb-0' style={{fontSize: '14px', color: 'red'}}>{props.english_title ? props.english_title : props.alternative_title} - {props.japanese_title}</Card.Title>
         </Card.Body>
         </Link>

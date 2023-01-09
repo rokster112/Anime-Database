@@ -21,7 +21,7 @@ export default function UpcomingAnime(props) {
       </div>
     </Link>
     <div style={{ height: '50px', widht: '120px' }}>
-      <Card.Title style={{ fontSize: '13px' }}>{item.title}</Card.Title>
+      <Card.Title style={{ fontSize: '13px', margin: '5px 0px 0px 5px' }}>{item.title}</Card.Title>
     </div>
   </Card>
 </Carousel.Item>
