@@ -1,7 +1,7 @@
+
 import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import Carousel from 'react-grid-carousel'
-
 import "react-multi-carousel/lib/styles.css"
 import PagesBar from '../PagesBar'
 
@@ -12,7 +12,7 @@ export default function UpcomingAnime(props) {
   return (
     <>
   <Carousel containerStyle={{maxWidth: '1200px', marginInline: '0', alignSelf: 'center'}} cols={5} showDots loop>
-{ props.now.map(item => {
+{ props.upcoming.map(item => {
   return <Carousel.Item key={item.mal_id}>
   <Card style={{ height: '300px', width: '200px', marginInline: '10px' }}>
     <Link to={`/anime/${item.mal_id}`}>

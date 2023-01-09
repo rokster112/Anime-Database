@@ -94,12 +94,12 @@ export default function Reviews(props) {
   return (
     <div>
       {reviews !== undefined ? 
-      <>
+      <div>
       <MiniNavbar 
       id={id}
       title={props.oneAnime.title_english}
       />
-      <div style={{display: 'flex', flexDirection: 'row'}}>
+      <div style={{display: 'flex', flexDirection: 'row', marginInline: '20px'}}>
         <SideInfo 
           id={id}
           {...props.oneAnime}
@@ -108,18 +108,19 @@ export default function Reviews(props) {
           <div style={{borderBottom: '1px solid', paddingBottom: '15px'}}>
           <p style={{margin: '0', fontWeight: 'bold'}}>Reviews</p>
           </div>
-      {mappedReviews}
-      <div style={{display: 'flex', alignItem: 'center', justifyContent: 'center'}}>
-        <PagesBar 
-        changePage={changePage}
-        currentPage={currentPage}
-        lastPage={pageData.last_visible_page}
-        />
-        </div>
+      {mappedReviews.length > 0 ? 
+      <>
+        {mappedReviews}
+        <div style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>
+          <PagesBar
+            changePage={changePage}
+            currentPage={currentPage}
+            lastPage={pageData.last_visible_page} />
+        </div></> : 'No reviews are available for this anime'}
           </div>  
       </div>
 
-      </>
+      </div>
     
       : 'Reviews unavailable'}
     </div>

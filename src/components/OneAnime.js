@@ -74,7 +74,7 @@ export default function OneAnime(props) {
       <>
       <MiniNavbar 
         id={id}
-        title={oneAnime.title_english}
+        title={oneAnime.title_english ? oneAnime.title_english : oneAnime.title}
       />
       <div className='individual-anime'>
       <div className='side-info-statistics-part' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
@@ -82,7 +82,7 @@ export default function OneAnime(props) {
         id={id}
         {...oneAnime}
         />
-      <div style={{display: 'flex', flexDirection: 'column'}}>
+      <div style={{display: 'flex', flexDirection: 'column', width: '1100px'}}>
       <StatisticsPart
         {...oneAnime}
         />

@@ -92,20 +92,29 @@ export default function Episodes(props) {
           <p className='episode-button' style={{display: eps[0] == false || eps[0].length < 10 ? 'none' : 'flex'}} onClick={handleClick}>{toggle ? 'Show all episodes' : 'Minimize all episodes '}</p>
         </div>
         <div style={styles} id='scrollable-div'>
-            {episodes[0].length > 0 ? mappedEpisodes : 'Currently no episodes available for this anime'}
-          </div>
-          
+            {episodes[0].length > 0 ? 
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+            {mappedEpisodes}
             <PagesBar
             lastPage={lastPage}
             currentPage={currentPage}
-            changePage={changePage} />
+            changePage={changePage} /> 
+            </div>
+            : 
+            'Currently no episodes available for this anime'}
+          </div>
+          
+
                 </div>
                 </div>
                 </div>
                 </div>
             </>
       :
-      'Episodes unavailable/loading. If problem persists, refresh the page'
+      <MiniNavbar 
+      id={id}
+      title={props.oneAnime.title_english}
+    />
     }
     </>
 
